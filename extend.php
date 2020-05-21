@@ -3,7 +3,8 @@
 $arrayName =array();
 $k=array(
   "a"=>3,
-  "b"=>4
+  "b"=>4,
+  "c"=>5
 );
 //
 foreach ($k as $key => $value) {
