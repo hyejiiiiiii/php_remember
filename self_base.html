@@ -1,0 +1,76 @@
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<script type="text/javascript">
+
+  var array=[1,2,3,4,5,6,7,8,9,10];
+  var number=[];
+  for(var i=0;i<4;i++){
+ let select=Math.floor(Math.random() * array.length);
+ number.push(array.splice(select,1));
+
+  }
+
+
+
+  console.log(number);
+</script>
+
+<input type="text" id="input"><button id="button">submit<button>
+<h1 id="goal">return</h1>
+
+
+<script type="text/javascript">
+
+
+var count=0;
+
+$('#button').on('click',function(){
+  var strike=0;
+  var ball=0;
+  if(count>5){
+    alert("기회박탈");
+    return false;
+  }
+  count++;
+  var value=$('#input').val();
+  var inputArray=value.split('');
+  console.log(inputArray);
+
+  // for(var i=0; i<4;i++){
+  //   for(var k=0;k<4;k++){
+  //
+  //   if(number[i] == inputArray[k]){
+  //     if(i===k){
+  //       strike++;
+  //     }else{
+  //       ball++;
+  //     }
+  //   }
+  //   }
+  // }
+
+
+  for(var i=0; i<4 ; i++ ){
+    for(var k=0; k<4 ; k++ ){
+      if(inputArray[k]==number[i]){
+        if(i===k){
+          strike++;
+        }else{
+
+          ball++;
+        }
+      }
+    }
+  }
+// strike=3;
+
+$('#goal').text(function(){
+  return strike===4?'success': 'strike: ' + strike + 'ball'+ ball  +'count:\n'+count  ;
+})
+
+});
+
+
+
+</script>
